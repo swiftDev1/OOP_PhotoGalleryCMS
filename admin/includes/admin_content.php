@@ -7,17 +7,6 @@
             ADMIN
             <small>Subheading</small>
         </h1>
-
-        <?php
-            if($database->connection){
-                echo "true";
-            }
-        
-        
-        ?>
-
-
-
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -26,6 +15,19 @@
                 <i class="fa fa-file"></i> Blank Page
             </li>
         </ol>
+<?php
+$sql = "SELECT * FROM users WHERE user_id = 1";
+$result = $database->query($sql);
+$user_found = mysqli_fetch_assoc($result);
+echo $user_found['username'];
+
+
+?>
+
+
+
+
+
     </div>
 </div>
 <!-- /.row -->
