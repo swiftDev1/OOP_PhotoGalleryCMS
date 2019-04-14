@@ -16,10 +16,23 @@
             </li>
         </ol>
 <?php
-$sql = "SELECT * FROM users WHERE user_id = 1";
-$result = $database->query($sql);
-$user_found = mysqli_fetch_assoc($result);
-echo $user_found['username'];
+
+
+
+// $found_user = User::find_user_by_id(2); 
+// $user = User::instantiation($found_user);
+// echo $user->username;
+
+$users = User::find_all_users();
+foreach($users as $user){
+    echo $user->username. "<br>";
+}
+
+
+
+
+
+
 
 
 ?>
