@@ -23,13 +23,25 @@
 // $user = User::instantiation($found_user);
 // echo $user->username;
 
-$users = User::find_all_users();
-foreach($users as $user){
-    echo $user->username. "<br>";
-}
+// $users = User::find_all_users();
+// foreach($users as $user){
+//     echo $user->username. "<br>";
+// }
+// $id_user = User::find_user_by_id(1);
+
+// foreach($id_user as $userid){
+//     echo $userid->first_name. "<br>";
+// }
 
 
+// $query = "SELECT * FROM users";
+// $result = mysqli_query($database->connection, $query);
+// while($row = mysqli_fetch_array($result)){
+//     print_r($row);
+// }
 
+$found_user = User::find_user_by_id(2);
+echo $found_user->username;
 
 
 

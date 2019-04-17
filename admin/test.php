@@ -1,39 +1,33 @@
-<?php 
-    class Car{
-        var $engine;
-        var $tyre;
-        public $door = 4;
-        var $brand;
-        var $wheel;
-        protected $price;
-        var $model;
+<?php # Script 12.1 - login_page.inc.php
+ // This page prints any errors associated with logging in
+ // and it creates the entire login page,including the form.
 
-        function __construct($brandname = "Benz", $no_of_wheels = 6, $tyre= 4, $model = 2018)
-        {
-           $this->brand = $brandname;
-           $this->wheel = $no_of_wheels;
-           $this->tyre = $tyre;
-           $this->model = $model;
-        }
+ // Include the header:
+ $page_title = 'Login';
+ include ('includes/header.html');
 
-        public function set_price($current_price){
-            $this->price = $current_price;
-        }
+ // Print any error messages, if they exist:
+ if (isset($errors) && !empty($errors)) {
+ echo '<h1>Error!</h1>
+ <p class="error">The following
+error(s) occurred:<br />';
+ foreach ($errors as $msg) {
+ echo " - $msg<br />\n";
+ }
+ echo '</p><p>Please try again.</p>';
+ }
 
-        public function get_price(){
-            return $this->price;
-        }
+ // Display the form:
+ ?><h1>Login</h1>
+ <form action="login.php" method="post">
+ <p>Email Address: <input type="text"
+name="email" size="20" maxlength="60" />
+</p>
+ <p>Password: <input type="password"
+name="pass" size="20" maxlength="20" />
+</p>
+ <p><input type="submit" name="submit"
+value="Login" /></p>
+ </form>
 
-
-    }
- $mercedez = new Car();
- //echo $mercedez->brand;
-$mercedez->door = 30;
-echo $mercedez->door;
-$mercedez->set_price(5500);
- //echo $mercedez->get_price();
-
-
-
-
-?>
+<?php include ('includes/footer.html');?>
